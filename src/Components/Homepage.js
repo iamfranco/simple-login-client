@@ -41,9 +41,12 @@ function Homepage() {
     <>
       <Header />
       <div className="belowHeader">
-        <div className="bigHeader">Homepage</div>
-        <div>
-          Your number is currently <strong>{userObject.someNumber}</strong>.
+        <div className="bigHeader">
+          Welcome back <strong>{userObject.displayName}</strong>!
+        </div>
+        <div className={styles.yourNumber}>
+          <p>Your number is:</p>
+          <div className={styles.bigNumber}>{userObject.someNumber}</div>
         </div>
         <div className={styles.halfButtonContainer}>
           <div onClick={minusOne} className={styles.button}>
