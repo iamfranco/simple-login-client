@@ -4,6 +4,10 @@ import googleLogo from "./../assets/googleLogo.png"
 import styles from "./../styles/LoggedOut.module.css"
 
 function LoggedOut() {
+  function googleLogin() {
+    window.open("http://localhost:5000/auth/google", "_self")
+  }
+
   return (
     <div className="container" id={styles.loggedOut}>
       <div className={styles.verticalCenter}>
@@ -24,7 +28,9 @@ function LoggedOut() {
 
         <div className="wide-button" id={styles.googleButton}>
           <img src={googleLogo} alt="" className={styles.googleLogo} />
-          <div className={styles.googleText}>Sign in with Google</div>
+          <div onClick={googleLogin} className={styles.googleText}>
+            Sign in with Google
+          </div>
         </div>
       </div>
     </div>
