@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 function RegisterPage() {
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
+  const [errorMsg, setErrorMsg] = useState({ show: false })
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -21,7 +22,10 @@ function RegisterPage() {
       )
       .then(res => {
         if (!res.data.success) {
-          window.location.href = "/register"
+          setErrorMsg({
+            show: true,
+            msg: res.data.message
+          })
         } else {
           window.location.href = "/"
         }
@@ -34,6 +38,7 @@ function RegisterPage() {
         <div className="back-button"></div>
       </Link>
       <div className="bigHeader">SIGN UP</div>
+      <div className="formError">{errorMsg.show ? errorMsg.msg : null}</div>
       <form action="" method="post">
         <input onChange={e => setUsername(e.target.value)} type="text" name="username" placeholder="username" className="wide-text-input" />
         <input onChange={e => setPassword(e.target.value)} type="password" name="password" placeholder="password" className="wide-text-input" />

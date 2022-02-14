@@ -39,6 +39,11 @@ input {
   margin-bottom: 30px;
 }
 
+.formError {
+  height: 20px;
+  font-size: 14px;
+}
+
 .wide-text-input {
   font-size: 14px;
   width: 100%;
