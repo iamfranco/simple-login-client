@@ -11,7 +11,7 @@ function RegisterPage() {
     e.preventDefault()
     axios
       .post(
-        "http://localhost:5000/register",
+        `${process.env.REACT_APP_BACKEND_URI}/register`,
         {
           username: username,
           password: password

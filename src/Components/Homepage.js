@@ -24,7 +24,7 @@ function Homepage() {
 
     axios
       .post(
-        "http://localhost:5000/setUser",
+        `${process.env.REACT_APP_BACKEND_URI}/setUser`,
         {
           someNumber: newNumber
         },

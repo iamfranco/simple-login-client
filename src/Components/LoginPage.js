@@ -11,7 +11,7 @@ function LoginPage() {
     e.preventDefault()
     axios
       .post(
-        "http://localhost:5000/login",
+        `${process.env.REACT_APP_BACKEND_URI}/login`,
         {
           username: username,
           password: password

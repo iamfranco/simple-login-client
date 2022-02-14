@@ -10,7 +10,7 @@ function Menu({ showMenu, setShowMenu }) {
 
   function handleLogout() {
     axios
-      .get("http://localhost:5000/logout", {
+      .get(`${process.env.REACT_APP_BACKEND_URI}/logout`, {
         withCredentials: true
       })
       .then(res => {
