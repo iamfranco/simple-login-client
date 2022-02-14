@@ -33,14 +33,14 @@ function LoginPage() {
   }
 
   return (
-    <div className="container">
+    <div className="max-width-container">
       <Link to="/">
         <div className="back-button"></div>
       </Link>
       <div className="bigHeader">Log In</div>
       <div className="formError">{errorMsg.show ? errorMsg.msg : null}</div>
       <form action="" method="post">
-        <input onChange={e => setUsername(e.target.value)} type="text" name="username" placeholder="username" className="wide-text-input" />
+        <input onChange={e => setUsername(e.target.value)} type="text" name="username" placeholder="username" className="wide-text-input" autoFocus />
         <input onChange={e => setPassword(e.target.value)} type="password" name="password" placeholder="password" className="wide-text-input" />
         <button onClick={handleSubmit} className="wide-button" type="submit">
           LOG IN

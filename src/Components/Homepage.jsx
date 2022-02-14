@@ -1,31 +1,60 @@
-import axios from "axios"
 import React, { useContext } from "react"
 import { myContext } from "../Context"
+import Header from "./Header"
+import styles from "./../styles/Homepage.module.css"
+import axios from "axios"
+import produce from "immer"
 
 function Homepage() {
-  const context = useContext(myContext)
+  const { userObject, setUserObject } = useContext(myContext)
 
-  function handleLogout() {
+  function plusOne() {
+    modifyNumber(userObject.someNumber + 1)
+  }
+
+  function minusOne() {
+    modifyNumber(userObject.someNumber - 1)
+  }
+
+  function modifyNumber(newNumber) {
+    const nextUserObject = produce(userObject, draft => {
+      draft.someNumber = newNumber
+    })
+    setUserObject(nextUserObject)
+
     axios
-      .get("http://localhost:5000/logout", {
-        withCredentials: true
-      })
-      .then(res => {
-        if (res.data === "logged out") {
-          window.location.href = "/"
+      .post(
+        "http://localhost:5000/setUser",
+        {
+          someNumber: newNumber
+        },
+        {
+          withCredentials: true
         }
+      )
+      .then(res => {
+        console.log(res.data)
       })
   }
 
   return (
-    <div className="container">
-      <div className="bigHeader">
-        Welcome back <strong>{context.displayName}</strong>
+    <>
+      <Header />
+      <div className="belowHeader">
+        <div className="bigHeader">Homepage</div>
+        <div>
+          Your number is currently <strong>{userObject.someNumber}</strong>.
+        </div>
+        <div className={styles.halfButtonContainer}>
+          <div onClick={minusOne} className={styles.button}>
+            -1
+          </div>
+          <div onClick={plusOne} className={styles.button}>
+            +1
+          </div>
+        </div>
       </div>
-      <div onClick={handleLogout} className="wide-button">
-        LOG OUT
-      </div>
-    </div>
+    </>
   )
 }
 

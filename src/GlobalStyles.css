@@ -9,6 +9,11 @@ a {
   color: inherit;
 }
 
+.max-width-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 .terms {
   text-align: center;
   font-size: 13px;
@@ -25,12 +30,6 @@ body {
 
 input {
   font-family: "Inter", sans-serif;
-}
-
-.container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 0 10px;
 }
 
 .bigHeader {
@@ -80,15 +79,96 @@ input {
   cursor: pointer;
 }
 
-#loggedOut {
-  background-image: url("./assets/loggedOutBackground.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-
 .transparent-button {
   color: #fff;
   background: none;
   border: 2px solid #fff;
+}
+
+header {
+  /* background-color: #f00; */
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+header > .hamburger {
+  width: 30px;
+  height: 30px;
+  background-image: url("./assets/hamburger.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+header > .username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#menu_background {
+  background: none;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 0.2s ease all;
+}
+#menu_background.show {
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: all;
+}
+
+#menu {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding-left: 10px;
+  padding-right: 30px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(-100%);
+  transition: 0.2s ease all;
+}
+
+#menu.show {
+  transform: translateX(0);
+}
+
+#menu .x {
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./assets/x.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+#menu_top_items {
+  margin-top: 40px;
+  list-style: none;
+  padding: 0;
+  font-size: 24px;
+}
+
+#menu_top_items li {
+  margin-bottom: 20px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.belowHeader {
+  padding: 0 10px;
+  padding-top: 50px;
 }

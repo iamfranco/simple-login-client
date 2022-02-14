@@ -9,27 +9,29 @@ function LoggedOut() {
   }
 
   return (
-    <div className="container" id={styles.loggedOut}>
+    <div id={styles.loggedOut}>
       <div className={styles.verticalCenter}>
-        <div className={styles.appName}>Dot the Box</div>
+        <div className="max-width-container">
+          <div className={styles.appName}>Simple Login</div>
 
-        <Link to="/login">
-          <div className="wide-button">LOG IN</div>
-        </Link>
-        <Link to="/register">
-          <div className="wide-button transparent-button">REGISTER</div>
-        </Link>
+          <Link to="/login">
+            <div className="wide-button">LOG IN</div>
+          </Link>
+          <Link to="/register">
+            <div className="wide-button transparent-button">REGISTER</div>
+          </Link>
 
-        <div className={styles.orContainer}>
-          <div className={styles.line}></div>
-          <div className={styles.or}>Or</div>
-          <div className={styles.line}></div>
-        </div>
+          <div className={styles.orContainer}>
+            <div className={styles.line}></div>
+            <div className={styles.or}>Or</div>
+            <div className={styles.line}></div>
+          </div>
 
-        <div className="wide-button" id={styles.googleButton}>
-          <img src={googleLogo} alt="" className={styles.googleLogo} />
-          <div onClick={googleLogin} className={styles.googleText}>
-            Sign in with Google
+          <div className="wide-button" id={styles.googleButton}>
+            <img src={googleLogo} alt="" className={styles.googleLogo} />
+            <div onClick={googleLogin} className={styles.googleText}>
+              Sign in with Google
+            </div>
           </div>
         </div>
       </div>

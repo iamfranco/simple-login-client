@@ -11,13 +11,14 @@ function Context(props) {
         setUserObject({
           displayName: res.data.displayName,
           googleId: res.data.googleId,
-          username: res.data.username
+          username: res.data.username,
+          someNumber: res.data.someNumber
         })
       }
     })
   }, [])
 
-  return <myContext.Provider value={userObject}>{props.children}</myContext.Provider>
+  return <myContext.Provider value={{ userObject, setUserObject }}>{props.children}</myContext.Provider>
 }
 
 export default Context
