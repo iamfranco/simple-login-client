@@ -27,11 +27,9 @@ function LoggedOut() {
             <div className={styles.line}></div>
           </div>
 
-          <div className="wide-button" id={styles.googleButton}>
+          <div className="wide-button" id={styles.googleButton} onClick={googleLogin}>
             <img src={googleLogo} alt="" className={styles.googleLogo} />
-            <div onClick={googleLogin} className={styles.googleText}>
-              Sign in with Google
-            </div>
+            <div className={styles.googleText}>Sign in with Google</div>
           </div>
         </div>
       </div>
