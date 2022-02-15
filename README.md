@@ -3,7 +3,7 @@
 ## Overview
 
 This is the frontend of a simple login app (MERN stack).
-[[Click here for Demo]](https://compassionate-dubinsky-c44c78.netlify.app)
+[[Click here for Demo]](https://francochanco-simple-login.netlify.app)
 
 The backend is [simple-login-backend](https://github.com/iamfranco/simple-login-backend).
 
